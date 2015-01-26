@@ -12,14 +12,14 @@ setPrototype.add = function(item){
 
 setPrototype.contains = function(item){
   if (this._storage.indexOf(item) !== -1) {
-    return true
+    return true;
   }
-  return false
+  return false;
 };
 
 setPrototype.remove = function(item){
-  var index = this._storage.indexOf(item)
-  this._storage.splice(index, 1)
+  var index = this._storage.indexOf(item);
+  this._storage.splice(index, 1);
 };
 
 /*
