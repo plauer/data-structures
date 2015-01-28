@@ -3,25 +3,25 @@ var makeQueue = function(){
 
   // Use an object with numeric keys to store values
   var storage = {};
-  var firstPosition = 1;
-  var currentPosition = 1;
+  var firstInQueue = 1;
+  var lastInQueue = 1;
 
   // Implement the methods below
 
   someInstance.enqueue = function(value){
-    storage[currentPosition] = value;
-    currentPosition++;
+    storage[lastInQueue] = value;
+    lastInQueue++;
   };
 
   someInstance.dequeue = function(){
-    var item = storage[firstPosition];
-    delete storage[firstPosition];
-    firstPosition++;
+    var item = storage[firstInQueue];
+    delete storage[firstInQueue];
+    firstInQueue++;
     return item;
   };
 
   someInstance.size = function(){
-    return currentPosition - firstPosition < 0 ? 0 : currentPosition - firstPosition;
+    return lastInQueue - firstInQueue < 0 ? 0 : lastInQueue - firstInQueue;
   };
 
   return someInstance;
