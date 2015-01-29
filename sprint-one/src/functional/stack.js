@@ -26,8 +26,3 @@ var makeStack = function(){
   return someInstance;
 };
 
-var stack = makeStack();
-stack.push('a');
-stack.pop();
-stack.pop();
-// console.log(stack.size());
