@@ -4,6 +4,7 @@ define([
   'spec/verifyClass.js',
   '../lib/chai/chai.js',
   '../lib/mocha/mocha.js',
+  '../lib/underscore/underscore.js',
   'src/'+variant+'/stack.js',
   'src/'+variant+'/queue.js',
   '../lib/jquery/jquery.js'

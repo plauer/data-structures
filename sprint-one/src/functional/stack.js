@@ -15,7 +15,6 @@ var makeStack = function(){
     var item = storage[currentSize];
     delete storage[currentSize];
     currentSize = currentSize-1 < 0 ? 0 : currentSize-1;
-    console.log(currentSize);
     return item;
   };
 
