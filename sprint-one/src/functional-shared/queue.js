@@ -2,9 +2,9 @@ var makeQueue = function(){
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
   var queue = _.extend({}, queueMethods);
-  queue.storage = {};
-  queue.firstInQueue = 1;
-  queue.lastInQueue = 1;
+  queue._storage = {};
+  queue._first = 1;
+  queue._last = 1;
 
   return queue;
 };
@@ -13,19 +13,19 @@ var queueMethods = {
 };
 
 queueMethods.enqueue = function (item) {
-  this.storage[this.lastInQueue] = item;
-  this.lastInQueue++;
+  this._storage[this._last] = item;
+  this._last++;
 };
 
 queueMethods.dequeue = function () {
-  var item = this.storage[this.firstInQueue];
-  delete this.storage[this.firstInQueue];
-  this.firstInQueue = this.firstInQueue > this.lastInQueue ? this.lastInQueue : this.firstInQueue+ 1;
+  var item = this._storage[this._first];
+  delete this._storage[this._first];
+  this._first = this._first > this._last ? this._last : this._first+ 1;
   return item;
 };
 
 queueMethods.size = function () {
-  return this.lastInQueue - this.firstInQueue < 0 ? 0 : this.lastInQueue - this.firstInQueue;
+  return this._last - this._first < 0 ? 0 : this._last - this._first;
 };
 
 // var queue = makeQueue();
