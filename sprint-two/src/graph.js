@@ -10,6 +10,8 @@ Graph.prototype.addNode = function(newVal, toVal){
     (function recurseGraph (node) {
       if (node.value === toVal) {
         node.edges.push(newNode);
+        console.log(newVal);
+        console.log(node);
         return;
       }
       if (node.edges.length) {
@@ -54,7 +56,6 @@ Graph.prototype.removeNode = function(value){
 Graph.prototype.getEdge = function(fromNode, toNode){
 
   var edges = (function recurseGraph (node, value, parentNode) {
-    // var parentNode = parentNode || node;
     if (node.value === value) {
       return parentNode.edges;
     }
@@ -65,12 +66,12 @@ Graph.prototype.getEdge = function(fromNode, toNode){
     }
   })(this, fromNode);
 
-  var foundEdges = 0;
-  for (var i = 0; i < edges.length; i++) {
-    if (edges[i].value === fromNode || edges[i].value === toNode) {
-      foundEdges++;
-    }
-  }
+  // var foundEdges = 0;
+  // for (var i = 0; i < edges.length; i++) {
+  //   if (edges[i].value === fromNode || edges[i].value === toNode) {
+  //     foundEdges++;
+  //   }
+  // }
   if (foundEdges === 2) {
     return true;
   }
